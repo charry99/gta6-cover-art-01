@@ -3,70 +3,73 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cinematic Intelligence — GTA 6 Cover Art Maker</title>
+<title>Cinematic Intelligence — GTA VI Cover Maker</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="topbar">
-  <div class="brand">CINEMATIC INTELLIGENCE</div>
-  <div class="tag">GTA 6 COVER ART MAKER · LAUNCH DAY ISSUE</div>
+  <div class="brand">CINEMATIC <span>INTELLIGENCE</span></div>
+  <div class="tagline">Launch-day cover maker · your photos never leave this device</div>
 </header>
 
 <main class="layout">
   <section class="stage">
-    <canvas id="preview" width="1920" height="1080"></canvas>
-    <p class="hint">Drag the photo to reposition it · scroll on the cover to zoom · everything stays on your device</p>
-    <button id="export" class="export">Export PNG</button>
+    <canvas id="preview" width="1100" height="619"></canvas>
+    <p class="hint">Drag a photo to reposition it · scroll over the cover to zoom a panel</p>
   </section>
 
   <aside class="panel">
     <h2>Photo</h2>
-    <div class="row wrap">
-      <button data-sample="neon-drive">Neon Drive</button>
-      <button data-sample="storm-drive">Storm Drive</button>
-      <button data-sample="aerial-watch">Aerial Watch</button>
-      <button data-sample="open-top">Open Top</button>
+    <div class="row wrap" id="sample-row">
+      <button type="button" data-sample="neon-drive">Neon Drive</button>
+      <button type="button" data-sample="storm-drive">Storm Drive</button>
+      <button type="button" data-sample="aerial-watch">Aerial Watch</button>
+      <button type="button" data-sample="open-top">Open Top</button>
     </div>
-    <label class="filebtn">Load photo(s) from device
-      <input id="file" type="file" accept="image/*" multiple hidden>
+    <label class="field">Load your own photo(s)
+      <input type="file" id="f-file" accept="image/*" multiple>
+    </label>
+    <label class="field">Sample / upload goes to panel
+      <select id="f-panel-target">
+        <option value="0">Panel 1</option>
+        <option value="1">Panel 2</option>
+        <option value="2">Panel 3</option>
+      </select>
     </label>
 
     <h2>Layout</h2>
-    <div class="row">
-      <button data-layout="editorial" class="on">Editorial</button>
-      <button data-layout="diptych">Diptych</button>
-      <button data-layout="triptych">Triptych</button>
+    <div class="row wrap">
+      <button type="button" data-layout="editorial">Editorial</button>
+      <button type="button" data-layout="diptych">Diptych</button>
+      <button type="button" data-layout="triptych">Triptych</button>
     </div>
-    <div class="row" id="panelRow" style="display:none">
-      <span class="lbl">Panel</span>
-      <button data-panel="0" class="on">1</button>
-      <button data-panel="1">2</button>
-      <button data-panel="2">3</button>
-    </div>
-
-    <h2>Export size</h2>
-    <select id="size">
-      <option value="1920x1080" selected>1920 × 1080 — landscape</option>
-      <option value="1080x1080">1080 × 1080 — square</option>
-      <option value="1080x1350">1080 × 1350 — portrait</option>
-    </select>
+    <label class="field">Export size
+      <select id="f-size"></select>
+    </label>
 
     <h2>Cover lines</h2>
-    <label>Masthead <input id="masthead" value="CINEMATIC INTELLIGENCE"></label>
-    <label>Issue line <input id="issue" value="LAUNCH DAY ISSUE · 19 · 11 · 2026"></label>
-    <label>Kicker <input id="kicker" value="GRAND THEFT AUTO VI · ROCKSTAR GAMES"></label>
-    <label>Title <input id="title" value="VICE CITY"></label>
-    <label>Deck <textarea id="deck" rows="3">Thirteen years after GTA V, Jason Duval and Lucia Caminos take Leonida. The wait is over.</textarea></label>
-    <label>Facts bar <input id="facts" value="OUT NOW · PLAYSTATION 5 · XBOX SERIES X|S · LEONIDA · 8 GAME AWARDS NOMINATIONS"></label>
+    <label class="field">Masthead <input type="text" id="f-masthead"></label>
+    <label class="field">Issue line <input type="text" id="f-issue"></label>
+    <label class="field">Kicker <input type="text" id="f-kicker"></label>
+    <label class="field">Title <input type="text" id="f-title"></label>
+    <label class="field">Deck <textarea id="f-deck" rows="3"></textarea></label>
+    <label class="field">Facts bar <input type="text" id="f-facts"></label>
+    <div data-caption-wrap="0"><label class="field">Panel 1 caption <input type="text" data-caption="0"></label></div>
+    <div data-caption-wrap="1"><label class="field">Panel 2 caption <input type="text" data-caption="1"></label></div>
+    <div data-caption-wrap="2"><label class="field">Panel 3 caption <input type="text" data-caption="2"></label></div>
 
-    <h2>Cinematic grade</h2>
-    <label>Grade strength <input id="grade" type="range" min="0" max="100" value="55"></label>
-    <label>Panel zoom <input id="zoom" type="range" min="1" max="3" step="0.01" value="1"></label>
-    <label class="check"><input id="neon" type="checkbox" checked> Neon glow (cyan / pink bloom)</label>
-    <label class="check"><input id="grain" type="checkbox" checked> Fine film grain</label>
+    <h2>Grade</h2>
+    <label class="field">Grade strength <span id="grade-val"></span>
+      <input type="range" id="f-grade" min="0" max="140" step="1">
+    </label>
+    <label class="check"><input type="checkbox" id="f-bloom"> Neon bloom</label>
+    <label class="check"><input type="checkbox" id="f-grain"> Fine grain</label>
+
+    <button type="button" id="export-btn" class="export">Export cover PNG</button>
+    <p class="note">One render path drives the preview and the export, so the PNG is exactly what you see.</p>
   </aside>
 </main>
 
-<script type="module" src="src/app.js"></script>
+<script type="module" src="src/main.js"></script>
 </body>
 </html>

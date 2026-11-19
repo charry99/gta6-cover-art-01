@@ -4,19 +4,19 @@
 [![rank](https://make.fun/badge/gta6-cover-art-01/charry99/gta6-cover-art-01/rank.svg)](https://make.fun/bounty/gta6-cover-art-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
 [![reward](https://make.fun/badge/gta6-cover-art-01/charry99/gta6-cover-art-01/reward.svg)](https://make.fun/bounty/gta6-cover-art-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
 
-**Cinematic Intelligence** is a cover-art maker that turns any photo into a premium launch-day editorial cover for Grand Theft Auto VI. The design language is a midnight-blue magazine cover with a gold serif masthead, a thin gold rule, a cyan letterspaced kicker, a huge condensed title, an italic serif deck and a facts bar set between gold rules. Pick one of the bundled sample stills or load your own photo, choose Editorial (full-bleed), Diptych (two panels) or Triptych (three panels) under one shared masthead, then shape the image with the cinematic grade: contrast and saturation lift, midnight-blue shadows, an optional cyan/pink neon glow and fine film grain, with a strength slider and per-panel drag-to-reposition and zoom. Every line on the cover — masthead, issue line, kicker, title, deck and facts bar — is editable, and the export button renders the finished cover offscreen at 1920×1080, 1080×1080 or 1080×1350 and downloads a PNG in a couple of clicks. The four display fonts (Anton, Cinzel, Playfair Display Italic and Archivo) are bundled locally under the SIL Open Font License 1.1, the app makes no network requests, and your photos never leave your device.
+Cinematic Intelligence is a launch-day editorial cover maker for Grand Theft Auto VI. Drop in any photo — or start from one of the four bundled Vice City stills — and it is graded and typeset into a magazine cover in the launch editorial's style: a deep cinematic grade with an S-curve, 1.3x saturation, midnight-blue split-toned shadows, a neon bloom pass, vignette and fine grain, all scaled by one strength slider. The type never floats over bright photo: a dark scrim sits behind the gold Cinzel masthead at the top, the whole lower third falls to near-black behind the cyan kicker, the huge Anton title and the two-line Playfair Italic deck, and the facts bar runs as a dark band between two gold rules. Three layouts share the same masthead and type system — Editorial (one full-bleed photo), Diptych and Triptych (gold-divided, gold-framed panels, each with its own editable gold caption). Every cover line is editable, covers export as PNG at 1920x1080, 1080x1080 or 1080x1350 through the exact render path the preview uses, and the bundled fonts (Anton, Cinzel, Playfair Display Italic and Archivo) are open-licensed SIL OFL faces loaded locally. Everything runs in the browser, fully offline — your photos never leave your device.
 
 ## Run it
 
-```sh
+```bash
 node serve.ts
 ```
 
-Then open http://localhost:8080 in a browser, pick a photo, edit the cover lines and export your PNG.
+Then open http://localhost:8080 in a browser. Pick a sample or load your own photo, choose a layout, edit the cover lines, and export the PNG.
 
 To hand the entry in:
 
-```sh
+```bash
 node main.ts
 ```
 
