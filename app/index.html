@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Cover Maker — GTA-style cover art from your photos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="shotCanvas" aria-label="Finished cover"></canvas>
+
+<main id="editor">
+  <header class="top">
+    <div>
+      <h1>LEONIDA <span>COVER MAKER</span></h1>
+      <p class="tag">Turn any photo into multi-panel, neon-sunset cover art. Photos never leave this device.</p>
+    </div>
+    <button id="exportBtn" class="export" type="button">⬇ Export PNG</button>
+  </header>
+
+  <div class="grid">
+    <section class="controls" aria-label="Controls">
+      <h2>1 · Photos</h2>
+      <label id="drop" class="drop">
+        <input id="fileInput" type="file" accept="image/*" multiple hidden>
+        <span>Drop photos here or <u>browse</u></span>
+        <small>Use your own shots, or start with a demo photo:</small>
+      </label>
+      <div class="row">
+        <button type="button" class="chip" data-sample="boulevard.jpg">Demo · Boulevard</button>
+        <button type="button" class="chip" data-sample="pier.jpg">Demo · Pier</button>
+      </div>
+      <div id="thumbs" class="thumbs" aria-label="Loaded photos"></div>
+
+      <h2>2 · Layout</h2>
+      <div class="row">
+        <button type="button" class="chip on" data-layout="hero">Hero + 2</button>
+        <button type="button" class="chip" data-layout="trio">Three panels</button>
+        <button type="button" class="chip" data-layout="grid">Grid + wide base</button>
+      </div>
+
+      <h2>3 · Frame a panel</h2>
+      <label class="field">Panel <select id="panelSelect"></select></label>
+      <label class="field">Photo <select id="panelPhoto"></select></label>
+      <label class="field">Zoom <input id="zoom" type="range" min="1" max="3" step="0.01" value="1"></label>
+      <button type="button" class="chip" id="resetPanel">Reset framing</button>
+      <p class="hint">Tip: click a panel on the cover, drag to move the photo, scroll to zoom.</p>
+
+      <h2>4 · Vice City grade</h2>
+      <label class="field">Sunset grade <input id="grade" type="range" min="0" max="1" step="0.01" value="0.8"></label>
+      <label class="check"><input id="duotone" type="checkbox"> Neon duotone</label>
+
+      <h2>5 · Words &amp; size</h2>
+      <label class="field">Caption <input id="caption" type="text" maxlength="28" value="LEONIDA NIGHTS"></label>
+      <label class="field">Sub-caption <input id="sub" type="text" maxlength="40" value="VICE CITY · EST. SUNSET"></label>
+      <label class="field">Export size
+        <select id="size">
+          <option value="1080x1080">Square · 1080 × 1080</option>
+          <option value="1080x1350">Portrait · 1080 × 1350</option>
+          <option value="1920x1080">Wide · 1920 × 1080</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="stage" aria-label="Cover preview">
+      <div id="previewWrap"><canvas id="preview"></canvas></div>
+      <p id="panelBadge" class="badge"></p>
+      <p class="hint">Three steps: add a photo, pick a layout, export. The PNG renders at full size on export.</p>
+    </section>
+  </div>
+</main>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
