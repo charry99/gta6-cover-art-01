@@ -1,0 +1,11 @@
+Bundled fonts — all licensed under the SIL Open Font License 1.1 (OFL):
+
+- Anton.ttf — Anton, by Vernon Adams
+- Cinzel.ttf — Cinzel, by Natanael Gama
+- PlayfairItalic.ttf — Playfair Display Italic, by Claus Eggers Sørensen
+- Archivo.ttf — Archivo, by Omnibus-Type
+
+Each font is free to use, embed and redistribute under the SIL Open Font
+License 1.1. The full license text is available at
+https://openfontlicense.org (bundled here in summary form; the fonts
+themselves are unmodified upstream files).
